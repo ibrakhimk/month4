@@ -46,6 +46,7 @@ class HomeFragment : Fragment() {
         setFragmentResultListener(RESULT_REQUEST_KEY) { key, bundle ->
             val result = bundle.getSerializable(TASK_KEY) as Task
             Log.e("sdssd","sdsd"+result)
+            adapter.addTask(result)
         }
         binding.recyclerView.adapter = adapter
     }
