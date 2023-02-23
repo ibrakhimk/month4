@@ -21,6 +21,7 @@
             android:src="@drawable/img_new"/>
     </androidx.cardview.widget.CardView>
     <EditText
+        android:id="@+id/my_edit_text"
         android:textColorHint="@color/black"
         android:padding="16dp"
         android:hint="@string/enter_number"
