@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
+import com.example.month4.App
 import com.example.month4.R
 import com.example.month4.databinding.FragmentTaskBinding
 import com.example.month4.ui.home.HomeFragment
@@ -30,8 +31,9 @@ class TaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSave.setOnClickListener {
             val task = Task(
-                binding.etTitle.text.toString(),
-                binding.etDesk.text.toString())
+                title = binding.etTitle.text.toString(),
+                description = binding.etDesk.text.toString())
+            App.db.taskDao().insert(task)
 
         setFragmentResult(HomeFragment.RESULT_REQUEST_KEY, bundleOf(HomeFragment.TASK_KEY to task))
             findNavController().navigateUp()

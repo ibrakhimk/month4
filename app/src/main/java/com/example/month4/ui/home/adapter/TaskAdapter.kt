@@ -3,15 +3,22 @@ package com.example.month4.ui.home.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.*
+import com.example.month4.App
 import com.example.month4.databinding.ItemTaskBinding
+import com.example.month4.ui.home.HomeFragment
 import com.example.month4.ui.model.Task
+import com.squareup.picasso.Picasso.Listener
 
-class TaskAdapter : Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(val listener: HomeFragment) : Adapter<TaskAdapter.TaskViewHolder>() {
     private val data = arrayListOf<Task>()
 
-    fun addTask(task: Task){
-        data.add(0, task)
-        notifyItemChanged(0)
+    var onClick: ((Task) -> Unit)? = null
+    var onLongClick: ((Int) -> Unit)? = null
+
+    fun addTask(task: List<Task>) {
+        data.clear()
+        data.addAll(task)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
@@ -31,14 +38,30 @@ class TaskAdapter : Adapter<TaskAdapter.TaskViewHolder>() {
     override fun getItemCount(): Int {
         return data.count()
     }
+    fun deleteItem(pos:Int):Task{
+        return data[pos]
+    }
 
     inner class TaskViewHolder(private val binding: ItemTaskBinding) : ViewHolder(binding.root) {
         fun bind(task: Task) {
-            with(binding){
+            with(binding) {
                 title.text = task.title
                 description.text = task.description
+                itemView.setOnClickListener{
+                    onClick?.invoke(task)
+                }
+                itemView.setOnLongClickListener {
+                    onLongClick?.invoke(adapterPosition)
+                    return@setOnLongClickListener true
+                }
+
+
             }
         }
 
+    }
+    fun remove(pos: Int){
+        data.removeAt(pos)
+        notifyItemRemoved(pos)
     }
 }
