@@ -18,10 +18,18 @@ class Pref(context: Context) {
     fun getUser(): String{
         return pref.getString(NAME_KEY,"").toString()
     }
+    fun setImage(image: String) {
+        pref.edit().putString(IMAGE_KEY, image).apply()
+    }
+
+    fun getImage(): String {
+        return pref.getString(IMAGE_KEY, "").toString()
+    }
 
     companion object {
         const val NAME_KEY = "name.kay"
         const val PREF_NAME = "pref.task"
         const val SEEN_KEY = "seen.key"
+        const val IMAGE_KEY = "image.key"
     }
 }

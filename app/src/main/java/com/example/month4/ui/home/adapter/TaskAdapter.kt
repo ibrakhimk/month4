@@ -54,11 +54,8 @@ class TaskAdapter(val listener: HomeFragment) : Adapter<TaskAdapter.TaskViewHold
                     onLongClick?.invoke(adapterPosition)
                     return@setOnLongClickListener true
                 }
-
-
             }
         }
-
     }
     fun remove(pos: Int){
         data.removeAt(pos)

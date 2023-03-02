@@ -47,14 +47,15 @@ class HomeFragment : Fragment() {
         binding.recyclerView.adapter = adapter
         adapter.onLongClick = {
             val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Delete")
+            builder.setTitle("Delete?")
             builder.setMessage("Delete sure")
-            builder.setPositiveButton("Delete"){_,_ ->
+            builder.setPositiveButton("Delete") { _, _ ->
+                App.db.taskDao().delete(tasks)
                 Toast.makeText(requireContext(), "Удален объект $it", Toast.LENGTH_SHORT).show()
                 adapter.remove(it)
                 binding.recyclerView.adapter = adapter
             }
-            builder.setNegativeButton("cancel"){dialog, _ -> dialog.cancel()}
+            builder.setNegativeButton("cancel") { dialog, _ -> dialog.cancel() }
             builder.show()
         }
 
@@ -72,5 +73,3 @@ class HomeFragment : Fragment() {
         const val TASK_KEY = "task_key"
     }
 }
-
-

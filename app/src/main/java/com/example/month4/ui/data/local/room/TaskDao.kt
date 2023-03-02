@@ -11,11 +11,8 @@ interface TaskDao {
     fun insert(task: Task)
     //Delete task
     @Delete
-    fun delete(task: Task)
+    fun delete(task: List<Task>)
 
     @Update
     fun update(task: Task)
-  //  @Query("DELETE FROM my_data_table WHERE id = :id")
-    //fun deleteById(id: Int)
-
 }
