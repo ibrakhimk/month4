@@ -1,10 +1,8 @@
 package com.example.month4.ui.utils
 
-import android.media.Image
 import android.widget.ImageView
-import com.squareup.picasso.Picasso
-import java.net.URI
+import com.bumptech.glide.Glide
 
 fun ImageView.loadImage(url: String){
-    Picasso.get().load(url).into(this)
+    Glide.with(this).load(url).into(this)
 }

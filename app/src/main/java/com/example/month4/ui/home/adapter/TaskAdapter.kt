@@ -3,11 +3,9 @@ package com.example.month4.ui.home.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.*
-import com.example.month4.App
 import com.example.month4.databinding.ItemTaskBinding
 import com.example.month4.ui.home.HomeFragment
 import com.example.month4.ui.model.Task
-import com.squareup.picasso.Picasso.Listener
 
 class TaskAdapter(val listener: HomeFragment) : Adapter<TaskAdapter.TaskViewHolder>() {
     private val data = arrayListOf<Task>()
