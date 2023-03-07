@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment
 import com.example.month4.databinding.FragmentImageBinding
 import com.example.month4.ui.data.local.Pref
 import com.example.month4.ui.utils.loadImage
+import com.google.firebase.auth.FirebaseAuth
+import java.lang.System.exit
 
 
 class ImageFragment : Fragment() {
@@ -44,7 +46,18 @@ class ImageFragment : Fragment() {
         saveName()
         binding.imgView.loadImage(pref.getImage())
         saveImage()
+        exitGoogle()
     }
+
+    private fun exitGoogle() {
+        binding.btnExit.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            activity?.finish()
+//            System.exit(0)
+            }
+        }
+
+
     private fun saveImage() {
         binding.imgView.setOnClickListener {
             val intent = Intent()
@@ -61,22 +74,3 @@ class ImageFragment : Fragment() {
     }
 }
 }
-//binding.imgView.setOnClickListener {
-//    val intent = Intent()
-//    intent.type = "image/*"
-//    intent.action = Intent.ACTION_GET_CONTENT
-//    startActivityForResult(intent, KEY_FOR_RESULT)
-//}
-//}
-//
-//override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//    super.onActivityResult(requestCode, resultCode, data)
-//    if (requestCode == KEY_FOR_RESULT && resultCode == Activity.RESULT_OK && data != null) {
-//        val uri = data.data
-//        binding.imgView.setImageURI(uri)
-//        pref.setImage(uri.toString())
-//        binding.imgView.loadImage(uri.toString())
-//    }
-//}
-//
-

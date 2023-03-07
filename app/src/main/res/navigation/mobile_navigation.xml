@@ -50,4 +50,9 @@
             app:popUpToInclusive="true"
             />
     </fragment>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.month4.ui.auth.AuthFragment"
+        android:label="Auth"
+        tools:layout="@layout/fragment_auth" />
 </navigation>

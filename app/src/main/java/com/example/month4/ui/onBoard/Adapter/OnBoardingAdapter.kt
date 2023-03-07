@@ -57,14 +57,9 @@ class OnBoardingAdapter(private val onStartClick:()->Unit) : Adapter<OnBoardingA
             binding.btnSkip.setOnClickListener {
                 onStartClick()
             }
-
-
             binding.title.text = onBoard.title
             binding.description.text = onBoard.desc
             binding.ivBoard.loadImage(onBoard.image.toString())
-
-
         }
-
     }
 }
