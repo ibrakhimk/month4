@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.month4.databinding.ItemOnBoardingBinding
-import com.example.month4.ui.model.OnBoard
-import com.example.month4.ui.utils.loadImage
+import com.example.month4.model.OnBoard
+import com.example.month4.utils.loadImage
 
 class OnBoardingAdapter(private val onStartClick:()->Unit) : Adapter<OnBoardingAdapter.OnBoardingViewHolder>() {
 

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.*
 import com.example.month4.databinding.ItemTaskBinding
 import com.example.month4.ui.home.HomeFragment
-import com.example.month4.ui.model.Task
+import com.example.month4.model.Task
 
 class TaskAdapter(val listener: HomeFragment) : Adapter<TaskAdapter.TaskViewHolder>() {
     private val data = arrayListOf<Task>()
@@ -36,7 +36,7 @@ class TaskAdapter(val listener: HomeFragment) : Adapter<TaskAdapter.TaskViewHold
     override fun getItemCount(): Int {
         return data.count()
     }
-    fun deleteItem(pos:Int):Task{
+    fun deleteItem(pos:Int): Task {
         return data[pos]
     }
 

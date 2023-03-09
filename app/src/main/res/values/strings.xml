@@ -12,4 +12,6 @@
     <string name="skip">skip</string>
     <string name="get_start">Get start</string>
     <string name="exit">Exit</string>
+    <string name="save">SAve</string>
+    <string name="username">Username</string>
 </resources>

@@ -9,7 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.month4.databinding.ActivityMainBinding
-import com.example.month4.ui.data.local.Pref
+import com.example.month4.data.local.Pref
 import com.example.month4.ui.home.HomeFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 

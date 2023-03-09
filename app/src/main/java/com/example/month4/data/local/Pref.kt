@@ -1,4 +1,4 @@
-package com.example.month4.ui.data.local
+package com.example.month4.data.local
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE

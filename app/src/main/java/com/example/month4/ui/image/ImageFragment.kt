@@ -11,17 +11,16 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.example.month4.databinding.FragmentImageBinding
-import com.example.month4.ui.data.local.Pref
-import com.example.month4.ui.utils.loadImage
+import com.example.month4.data.local.Pref
+import com.example.month4.utils.loadImage
 import com.google.firebase.auth.FirebaseAuth
-import java.lang.System.exit
 
 
 class ImageFragment : Fragment() {
 
     private lateinit var binding: FragmentImageBinding
     private lateinit var pref: Pref
-    private val KEY_FOR_RESULT = 10
+    private lateinit var auth: FirebaseAuth
     private val launcher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == Activity.RESULT_OK && it.data != null) {
@@ -53,10 +52,8 @@ class ImageFragment : Fragment() {
         binding.btnExit.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             activity?.finish()
-//            System.exit(0)
-            }
         }
-
+    }
 
     private fun saveImage() {
         binding.imgView.setOnClickListener {
@@ -66,11 +63,12 @@ class ImageFragment : Fragment() {
             launcher.launch(intent)
         }
     }
-    private fun saveName() {
-    binding.myEditText.setText(pref.getUser())
 
-    binding.myEditText.addTextChangedListener {
-        pref.setUser(binding.myEditText.text.toString())
+    private fun saveName() {
+        binding.myEditText.setText(pref.getUser())
+
+        binding.myEditText.addTextChangedListener {
+            pref.setUser(binding.myEditText.text.toString())
+        }
     }
-}
 }

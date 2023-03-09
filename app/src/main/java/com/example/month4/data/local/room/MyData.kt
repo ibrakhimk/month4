@@ -1,4 +1,4 @@
-package com.example.month4.ui.data.local.room
+package com.example.month4.data.local.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

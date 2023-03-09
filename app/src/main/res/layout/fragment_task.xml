@@ -3,21 +3,26 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:padding="16dp"
     android:layout_height="match_parent">
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/et_title"
-        android:layout_width="match_parent"
         android:hint="@string/title"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/et_desk"
+        android:drawableLeft="@drawable/ic_baseline_message"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        />
+    <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
+        android:padding="16dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_desk"
         android:hint="@string/description"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_height="wrap_content"/>
+        android:drawableLeft="@drawable/ic_baseline_message"
+        android:inputType="textPersonName"
+        />
     <Button
         android:text="SAVE"
         android:id="@+id/btn_save"

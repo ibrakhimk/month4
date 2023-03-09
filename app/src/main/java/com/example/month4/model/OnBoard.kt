@@ -1,4 +1,4 @@
-package com.example.month4.ui.model
+package com.example.month4.model
 
 import android.icu.text.CaseMap.Title
 

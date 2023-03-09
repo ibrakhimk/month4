@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.image.ImageFragment">
+    tools:context=".ui.image.ImageFragment"
+    android:padding="16dp">
     <Button
         android:id="@+id/btn_exit"
         android:text="@string/exit"
@@ -27,12 +28,13 @@
             android:scaleType="centerCrop"
             android:src="@drawable/img_new"/>
     </androidx.cardview.widget.CardView>
-    <EditText
-        android:id="@+id/my_edit_text"
-        android:textColorHint="@color/black"
-        android:padding="16dp"
-        android:hint="@string/enter_number"
+    <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/my_edit_text"
+        android:hint="Username"
+        android:drawableLeft="@drawable/ic_baseline_message"
+        android:inputType="textPersonName"
+        />
 
 </LinearLayout>

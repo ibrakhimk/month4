@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.month4.R
 import com.example.month4.databinding.FragmentOnBoardingBinding
-import com.example.month4.ui.data.local.Pref
+import com.example.month4.data.local.Pref
 import com.example.month4.ui.onBoard.Adapter.OnBoardingAdapter
 import me.relex.circleindicator.CircleIndicator3
 

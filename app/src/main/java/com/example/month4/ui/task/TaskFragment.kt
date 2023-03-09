@@ -12,7 +12,7 @@ import com.example.month4.App
 import com.example.month4.R
 import com.example.month4.databinding.FragmentTaskBinding
 import com.example.month4.ui.home.HomeFragment
-import com.example.month4.ui.model.Task
+import com.example.month4.model.Task
 import kotlin.concurrent.timerTask
 
 class TaskFragment : Fragment() {

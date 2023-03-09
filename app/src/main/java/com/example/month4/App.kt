@@ -2,7 +2,7 @@ package com.example.month4
 
 import android.app.Application
 import androidx.room.Room
-import com.example.month4.ui.data.local.room.AppDatabase
+import com.example.month4.data.local.room.AppDatabase
 
 class App : Application() {
     override fun onCreate() {

@@ -12,7 +12,7 @@ import com.example.month4.App
 import com.example.month4.R
 import com.example.month4.databinding.FragmentHomeBinding
 import com.example.month4.ui.home.adapter.TaskAdapter
-import com.example.month4.ui.model.Task
+import com.example.month4.model.Task
 
 @Suppress("NAME_SHADOWING")
 class HomeFragment : Fragment() {
