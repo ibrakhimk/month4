@@ -32,11 +32,15 @@ class TaskFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             val task = Task(
                 title = binding.etTitle.text.toString(),
-                description = binding.etDesk.text.toString())
+                description = binding.etDesk.text.toString()
+            )
             App.db.taskDao().insert(task)
 
-        setFragmentResult(HomeFragment.RESULT_REQUEST_KEY, bundleOf(HomeFragment.TASK_KEY to task))
+            setFragmentResult(
+                HomeFragment.RESULT_REQUEST_KEY,
+                bundleOf(HomeFragment.TASK_KEY to task)
+            )
             findNavController().navigateUp()
-    }
+        }
     }
 }

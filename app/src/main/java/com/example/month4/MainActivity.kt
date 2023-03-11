@@ -1,6 +1,7 @@
 package com.example.month4
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -12,6 +13,7 @@ import com.example.month4.databinding.ActivityMainBinding
 import com.example.month4.data.local.Pref
 import com.example.month4.ui.home.HomeFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         if (!pref.isUserSeen())
             navController.navigate(HomeFragmentDirections.actionNavigationHomeToOnBoardingFragment2())
-        if (auth.currentUser?.uid ==  null){
-            navController.navigate(R.id.authFragment )
+        if (auth.currentUser?.uid == null) {
+            navController.navigate(R.id.authFragment)
         }
         val appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -56,8 +58,11 @@ class MainActivity : AppCompatActivity() {
             if (destination.id == R.id.onBoardingFragment) {
                 supportActionBar?.hide()
             } else supportActionBar?.show()
-//            navView.isVisible = destination.id != R.id.taskFragment
         }
         navView.setupWithNavController(navController)
+
+        FirebaseMessaging.getInstance().token.addOnSuccessListener {
+            Log.d("ololo", "token: $it")
+        }
     }
 }

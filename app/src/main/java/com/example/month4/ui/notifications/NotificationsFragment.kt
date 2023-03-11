@@ -31,13 +31,13 @@ class NotificationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         db = FirebaseFirestore.getInstance()
-        binding.recyclerView.adapter =adapter
+        binding.recyclerView.adapter = adapter
         db.collection(FirebaseAuth.getInstance().currentUser?.uid.toString()).get()
             .addOnSuccessListener {
-            val data = it.toObjects(Quote::class.java)
-            adapter.addQuote(data)
-        }.addOnFailureListener {
-        }
+                val data = it.toObjects(Quote::class.java)
+                adapter.addQuote(data)
+            }.addOnFailureListener {
+            }
     }
 
     override fun onDestroyView() {

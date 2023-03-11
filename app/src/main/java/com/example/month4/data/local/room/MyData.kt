@@ -7,5 +7,4 @@ import androidx.room.PrimaryKey
 data class MyData(
     @PrimaryKey val id: Int,
     val url: String
-    // Другие поля здесь...
 )

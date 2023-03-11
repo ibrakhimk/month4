@@ -68,7 +68,7 @@ class AuthFragment : Fragment() {
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        auth .signInWithCredential(credential)
+        auth.signInWithCredential(credential)
             .addOnSuccessListener { authResult ->
                 findNavController().navigateUp()
             }

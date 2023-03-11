@@ -9,7 +9,8 @@ import com.example.month4.databinding.ItemOnBoardingBinding
 import com.example.month4.model.OnBoard
 import com.example.month4.utils.loadImage
 
-class OnBoardingAdapter(private val onStartClick:()->Unit) : Adapter<OnBoardingAdapter.OnBoardingViewHolder>() {
+class OnBoardingAdapter(private val onStartClick: () -> Unit) :
+    Adapter<OnBoardingAdapter.OnBoardingViewHolder>() {
 
     val data = arrayListOf<OnBoard>(
         OnBoard(
