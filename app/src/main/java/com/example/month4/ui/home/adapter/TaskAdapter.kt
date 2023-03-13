@@ -1,6 +1,7 @@
 package com.example.month4.ui.home.adapter
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -12,6 +13,7 @@ import com.example.month4.model.Task
 
 class TaskAdapter(val listener: HomeFragment) : Adapter<TaskAdapter.TaskViewHolder>() {
     private val data = arrayListOf<Task>()
+    private var color = true
 
     var onClick: ((Task) -> Unit)? = null
     var onLongClick: ((Int) -> Unit)? = null
@@ -58,20 +60,25 @@ class TaskAdapter(val listener: HomeFragment) : Adapter<TaskAdapter.TaskViewHold
                     return@setOnLongClickListener true
                 }
             }
-            if (position % 2 == 0) {
-                binding.llMain.setBackgroundColor(
-                    ContextCompat.getColor(
-                        binding.llMain.context, R.color.grey
-                    )
-                )
+            if (color && position % 2 == 0) {
+                binding.llMain.setBackgroundColor(Color.BLACK)
+                binding.description.setTextColor(Color.WHITE)
+                binding.title.setTextColor(Color.WHITE)
             } else {
-                binding.llMain.setBackgroundColor(
-                    ContextCompat.getColor(
-                        binding.llMain.context,
-                        R.color.white
-                    )
-                )
+                binding.llMain.setBackgroundColor(Color.WHITE)
+                binding.description.setTextColor(Color.BLACK)
+                binding.title.setTextColor(Color.BLACK)
             }
+//            if (color && position % 2 == 0){
+//                binding.llMain.setBackgroundColor(R.color.black)
+//                binding.title.setTextColor(R.color.white)
+//                binding.description.setTextColor(R.color.white)
+//            } else {
+//                binding.llMain.setBackgroundColor(R.color.white)
+//                binding.title.setTextColor(R.color.black)
+//                binding.description.setTextColor(R.color.black)
+//            }
+
         }
     }
 
@@ -80,3 +87,17 @@ class TaskAdapter(val listener: HomeFragment) : Adapter<TaskAdapter.TaskViewHold
         notifyItemRemoved(pos)
     }
 }
+//if (position % 2 == 0) {
+//    binding.llMain.setBackgroundColor(
+//        ContextCompat.getColor(
+//            binding.llMain.context, R.color.grey
+//        )
+//    )
+//} else {
+//    binding.llMain.setBackgroundColor(
+//        ContextCompat.getColor(
+//            binding.llMain.context,
+//            R.color.white
+//        )
+//    )
+//}
